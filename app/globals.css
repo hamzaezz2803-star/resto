@@ -24,6 +24,7 @@
   --success: #2e6b3a;
   --warning: #8a5a00;
   --error: #b3261e;
+  --open-on-smoke: #6cc47b;
 
   /* Jetons shadcn reliés à la palette */
   --background: var(--paper);
@@ -61,6 +62,7 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
+  --color-open-on-smoke: var(--open-on-smoke);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -139,6 +141,16 @@
     font-weight: 750;
     letter-spacing: -0.015em;
     line-height: 1;
+  }
+}
+
+/* Etat initial de la séquence du hero : seulement si JS actif et mouvement autorisé */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-hero-line] {
+    transform: translateY(105%);
+  }
+  html.js [data-hero-fade] {
+    opacity: 0;
   }
 }
 

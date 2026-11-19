@@ -1,7 +1,7 @@
 /**
  * Coordonnées et informations du restaurant.
  * Source : pastrama.ma et fiche Google (relevé de novembre 2026).
- * Ne jamais inventer une valeur : laisser `null` tant que le client ne l'a pas fournie.
+ * Ne jamais inventer une valeur.
  */
 
 export type DayKey = 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0 = dimanche (comme Date.getDay)
@@ -13,7 +13,6 @@ export const site = {
   fullName: "Pastrama, Deli & Craft Burger",
   tagline: "New York deli, Casablanca style",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://pastrama.ma",
-  orderUrl: "https://pastrama.ma/maarif",
   address: {
     street: "Rue Oumayma Essayeh",
     district: "Maarif",
@@ -27,7 +26,6 @@ export const site = {
   mapEmbedUrl:
     "https://maps.google.com/maps?q=33.5872606,-7.6384253&z=16&output=embed",
   phone: { display: "06 78 84 81 81", e164: "+212678848181" },
-  whatsapp: "212678848181",
   email: "manager@pastrama.ma",
   priceRange: "100,00 à 350,00 MAD par personne",
   services: ["Sur place", "À emporter", "Livraison"],
@@ -51,15 +49,6 @@ export const site = {
     6: [{ open: "09:30", close: "23:30" }],
     0: [{ open: "09:30", close: "23:30" }],
   } satisfies Record<DayKey, TimeRange[]>,
-  legal: {
-    operator: "LAFONDA RESTAURANT (marque PASTRAMA)",
-    /** À fournir par le client. Masqué tant que null. */
-    registeredAddress: null as string | null,
-    ice: null as string | null,
-    rc: null as string | null,
-    publicationDirector: null as string | null,
-    host: "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
-  },
 } as const;
 
 export const dayNames: Record<DayKey, string> = {
@@ -79,5 +68,6 @@ export const navLinks = [
   { href: "/#carte", label: "La carte" },
   { href: "/#maison", label: "La maison" },
   { href: "/#galerie", label: "Galerie" },
+  { href: "/#avis", label: "Avis" },
   { href: "/#infos", label: "Horaires et accès" },
 ] as const;

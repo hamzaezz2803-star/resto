@@ -55,8 +55,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr" className={`${geist.variable} ${bricolage.variable}`}>
+    <html lang="fr" className={`${geist.variable} ${bricolage.variable}`} suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col">
+        {/* Marque la présence de JS avant le premier rendu (évite un flash avant la séquence du hero) */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <a
           href="#contenu"
           className="sr-only z-[60] rounded-lg bg-smoke px-4 py-3 text-paper focus:not-sr-only focus:fixed focus:top-3 focus:left-3"

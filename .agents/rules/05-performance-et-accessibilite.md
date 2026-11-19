@@ -29,6 +29,7 @@
 - [ ] Contraste, clavier et `alt` vérifiés.
 - [ ] Testé à 360 px, 768 px, 1280 px et plus.
 - [ ] Photos authentiques ou sous licence, `docs/licences.md` à jour ; photos d'illustration remplacées si possible.
-- [ ] Pages légales reliées depuis le pied de page, champs ICE/RC renseignés par le client.
+- [ ] Aucun lien « Commander » ou « Réserver » (site vitrine).
+- [ ] Avis cités mot pour mot, accord des auteurs obtenu.
 - [ ] Favicon en place, `NEXT_PUBLIC_SITE_URL` réglé sur le domaine réel.
 - [ ] `npm run lint` et `npm run build` sans erreur, console du navigateur propre.

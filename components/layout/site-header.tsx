@@ -4,11 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import { ExternalLink } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
 import { MobileNav } from "@/components/layout/mobile-nav";
-import { Button } from "@/components/ui/button";
-import { navLinks, site } from "@/content/site";
+import { navLinks } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -60,26 +58,7 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Button
-            asChild
-            variant="outline"
-            className={cn(
-              "hidden sm:inline-flex",
-              overHero && "border-paper/60 bg-transparent text-paper hover:bg-paper hover:text-smoke",
-            )}
-          >
-            <a href={site.orderUrl} target="_blank" rel="noopener noreferrer">
-              Commander en ligne
-              <ExternalLink aria-hidden="true" />
-              <span className="sr-only">(nouvel onglet)</span>
-            </a>
-          </Button>
-          <Button asChild className="hidden md:inline-flex">
-            <Link href="/#reserver">Réserver</Link>
-          </Button>
-          <MobileNav overHero={overHero} />
-        </div>
+        <MobileNav overHero={overHero} />
       </div>
     </motion.header>
   );

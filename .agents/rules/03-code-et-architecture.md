@@ -16,7 +16,6 @@ donc pas de `clsx` ni `tailwind-merge`).
 
 ```
 app/                     routes (pages serveur par défaut), metadata, sitemap, robots, icônes
-  (legal)/               pages légales
 components/
   ui/                    composants shadcn (ne pas modifier sans raison)
   layout/                en-tête, pied de page, navigation mobile

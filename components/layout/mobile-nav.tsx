@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ExternalLink, Menu, Phone } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -46,22 +46,7 @@ export function MobileNav({ overHero }: { overHero: boolean }) {
               </li>
             ))}
           </ul>
-          <div className="mt-auto flex flex-col gap-3 pt-10">
-            <Button asChild size="lg" onClick={() => setOpen(false)}>
-              <Link href="/#reserver">Réserver une table</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-paper/40 bg-transparent text-paper hover:bg-paper hover:text-smoke"
-            >
-              <a href={site.orderUrl} target="_blank" rel="noopener noreferrer">
-                Commander en ligne
-                <ExternalLink aria-hidden="true" />
-                <span className="sr-only">(nouvel onglet)</span>
-              </a>
-            </Button>
+          <div className="mt-auto pt-10">
             <a
               href={`tel:${site.phone.e164}`}
               className="inline-flex min-h-11 items-center justify-center gap-2 text-on-smoke-muted hover:text-paper"

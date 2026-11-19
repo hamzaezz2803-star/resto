@@ -1,14 +1,8 @@
 import Link from "next/link";
 import { navLinks, site } from "@/content/site";
 
-const legalLinks = [
-  { href: "/mentions-legales", label: "Mentions légales et conditions d'utilisation" },
-  { href: "/confidentialite", label: "Politique de confidentialité" },
-  { href: "/cookies", label: "Politique de cookies" },
-] as const;
-
 export function SiteFooter() {
-  const { legal, address } = site;
+  const { address } = site;
 
   return (
     <footer className="on-smoke bg-smoke text-paper">
@@ -30,11 +24,6 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/#reserver" className="inline-flex min-h-11 items-center hover:text-mustard">
-                Réserver une table
-              </Link>
-            </li>
           </ul>
         </nav>
 
@@ -53,12 +42,12 @@ export function SiteFooter() {
             </li>
             <li>
               <a
-                href={site.orderUrl}
+                href={site.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-11 items-center hover:text-mustard"
               >
-                Commander sur pastrama.ma<span className="sr-only"> (nouvel onglet)</span>
+                Itinéraire<span className="sr-only"> (nouvel onglet)</span>
               </a>
             </li>
           </ul>
@@ -66,27 +55,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-paper/15">
-        <div className="container-page flex flex-col gap-6 py-8 text-sm text-on-smoke-muted lg:flex-row lg:items-start lg:justify-between">
-          <div className="space-y-1">
-            <p>
-              © 2026 {legal.operator}.
-              {legal.ice ? ` ICE ${legal.ice}.` : ""}
-              {legal.rc ? ` RC ${legal.rc}.` : ""}
-            </p>
-            <p>Photos d&apos;illustration : Unsplash.</p>
-          </div>
-          <nav aria-label="Informations légales">
-            <ul className="flex flex-col gap-x-6 sm:flex-row sm:flex-wrap">
-              {legalLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="inline-flex min-h-11 items-center underline-offset-4 hover:text-paper hover:underline">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <p className="container-page py-6 text-sm text-on-smoke-muted">Photos d&apos;illustration : Unsplash.</p>
       </div>
     </footer>
   );

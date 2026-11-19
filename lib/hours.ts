@@ -43,13 +43,3 @@ export function getOpenStatus(now = casablancaNow()): OpenStatus {
   return { open: false, opensAt: tomorrow[0]?.open ?? null, opensToday: false };
 }
 
-/** Créneaux de réservation (toutes les 30 min) pour un jour donné, en laissant 1 h avant la fermeture. */
-export function reservationSlots(day: DayKey): string[] {
-  const slots: string[] = [];
-  for (const r of site.hours[day]) {
-    for (let m = toMinutes(r.open) + 30; m <= toMinutes(r.close) - 60; m += 30) {
-      slots.push(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`);
-    }
-  }
-  return slots;
-}

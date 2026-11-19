@@ -13,7 +13,7 @@
 - **Aucun tiret cadratin (—)** dans les textes visibles. Utiliser point, virgule, deux-points ou parenthèses.
 - **Aucun faux avis, faux chiffre ou affirmation non prouvée** (« le meilleur de Casablanca », « n°1 »...).
   Les affirmations sur la fabrication (fumage 12 h, levain naturel, sans conservateurs) viennent du restaurant lui-même.
-- Pas de témoignage nominatif sans autorisation écrite de son auteur.
+- Avis : uniquement de vrais avis Google, cités mot pour mot (fichier `content/reviews.ts`), nom abrégé. Accord des auteurs à obtenir.
 - Pas de badge « Fait avec l'IA ».
 
 ## Formats (Maroc)
@@ -31,11 +31,9 @@
 - Chaque image ajoutée est listée dans `docs/licences.md` (source, auteur ou URL, licence).
 - `alt` descriptif pour toute image utile, `alt=""` pour les images décoratives.
 
-## Pages légales (reliées depuis le pied de page)
+## Pages légales
 
-- `/mentions-legales` (éditeur, hébergeur, conditions d'utilisation du site), `/confidentialite`, `/cookies`.
-- Pas de politique de remboursement sur ce site : la vente en ligne se fait sur pastrama.ma, qui a ses propres conditions.
-- **Ne jamais inventer** ICE, RC, adresse du siège ou nom du responsable : ces champs restent masqués
-  tant qu'ils ne sont pas fournis par le client (`content/site.ts`, champs `legal`).
-- Pas de bandeau cookies tant qu'aucun cookie non essentiel n'est déposé. La carte Google Maps ne se charge
-  qu'après un clic explicite de l'utilisateur.
+- Le client a demandé de ne pas publier de pages légales ni de mention de copyright (voir `00-lire-en-premier.md`).
+- Aucun cookie non essentiel n'est déposé, donc pas de bandeau cookies. La carte Google Maps ne se charge
+  qu'après un clic explicite de l'utilisateur. Si un outil de mesure est ajouté un jour, il faudra un bandeau
+  (« Accepter » et « Refuser » de même importance) et une politique de cookies.
