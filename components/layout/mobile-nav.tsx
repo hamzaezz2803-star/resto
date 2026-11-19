@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { navLinks, site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
@@ -46,7 +47,8 @@ export function MobileNav({ overHero }: { overHero: boolean }) {
               </li>
             ))}
           </ul>
-          <div className="mt-auto pt-10">
+          <div className="mt-auto flex flex-col gap-3 pt-10">
+            <WhatsAppButton size="lg" />
             <a
               href={`tel:${site.phone.e164}`}
               className="inline-flex min-h-11 items-center justify-center gap-2 text-on-smoke-muted hover:text-paper"

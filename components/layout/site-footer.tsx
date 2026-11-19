@@ -55,7 +55,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-paper/15">
-        <p className="container-page py-6 text-sm text-on-smoke-muted">Photos d&apos;illustration : Unsplash.</p>
+        <p className="container-page py-6 text-sm text-on-smoke-muted">Photos et vidéo d&apos;illustration : Unsplash et Pexels.</p>
       </div>
     </footer>
   );

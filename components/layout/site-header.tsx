@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Logo } from "@/components/shared/logo";
+import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { navLinks } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -58,7 +59,17 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <MobileNav overHero={overHero} />
+        <div className="flex items-center gap-2">
+          <WhatsAppButton
+            label="Réserver"
+            variant="outline"
+            className={cn(
+              "hidden md:inline-flex",
+              overHero && "border-paper/60 bg-transparent text-paper hover:bg-paper hover:text-smoke",
+            )}
+          />
+          <MobileNav overHero={overHero} />
+        </div>
       </div>
     </motion.header>
   );

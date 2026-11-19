@@ -9,6 +9,7 @@ Chaque animation doit avoir une raison. Si on ne sait pas dire ce qu'elle expliq
 | **GSAP** + `@gsap/react` (`useGSAP`) | Séquence d'ouverture du hero, révélation du tableau de la carte au défilement (ScrollTrigger). |
 | **Motion** (`motion/react`) | Interactions d'interface : changement d'onglet de la carte, indicateur d'onglet, visionneuse de la galerie, apparition de l'en-tête. |
 | **Lenis** | Défilement fluide global, synchronisé avec ScrollTrigger (`lenis.on("scroll", ScrollTrigger.update)` et `gsap.ticker`). |
+| `<video>` natif | Vidéo d'ambiance du hero uniquement (`components/sections/hero-video.tsx`) : muette, en boucle, bouton pause, absente si mouvement réduit ou économie de données. |
 | CSS (`transition`) | Survols et états des boutons, liens, cartes. |
 
 Ne pas utiliser deux bibliothèques pour la même animation. Pas de nouvelle bibliothèque d'animation.

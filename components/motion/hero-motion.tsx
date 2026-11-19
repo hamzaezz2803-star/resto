@@ -5,7 +5,7 @@ import { gsap, useGSAP, EASE } from "@/components/motion/gsap";
 
 /**
  * Séquence d'ouverture du hero (unique moment orchestré de la page).
- * Cibles : [data-hero-image], [data-hero-line] (dans un masque overflow-hidden), [data-hero-fade].
+ * Cibles : [data-hero-line] (dans un masque overflow-hidden), [data-hero-fade].
  * L'état masqué initial est posé en CSS uniquement si JS actif et mouvement autorisé (voir globals.css).
  */
 export function HeroMotion({ children, className }: { children: ReactNode; className?: string }) {
@@ -16,9 +16,8 @@ export function HeroMotion({ children, className }: { children: ReactNode; class
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const tl = gsap.timeline({ defaults: { ease: EASE } });
-        tl.fromTo("[data-hero-image]", { scale: 1.06 }, { scale: 1, duration: 1.4, ease: "power2.out" }, 0)
-          .fromTo(
-            "[data-hero-line]",
+        tl.fromTo(
+          "[data-hero-line]",
             // y: 0 écrase la translation posée en CSS avant hydratation (lue par GSAP comme un décalage en px).
             { y: 0, yPercent: 105 },
             { y: 0, yPercent: 0, duration: 0.45, stagger: 0.06 },

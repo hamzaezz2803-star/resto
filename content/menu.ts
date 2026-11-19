@@ -205,7 +205,7 @@ export const signatureDishes: SignatureDish[] = [
   {
     name: "Truffle Burger",
     price: { from: 129, to: 159 },
-    description: "Le burger le plus commandé, parfumé à la truffe.",
+    description: "Le burger à la truffe, l'un des plus populaires de la carte.",
     image: {
       src: "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9",
       alt: "Burger tenu par un couteau planté, sur fond sombre",

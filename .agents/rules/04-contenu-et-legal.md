@@ -26,6 +26,7 @@
 ## Photos
 
 - Pas d'image générée par IA présentée comme réelle.
+- Vidéo du hero : Pexels (licence Pexels), vraie prise de vue mais pas chez Pastrama, illustration à remplacer.
 - Photos actuelles : Unsplash (licence Unsplash, usage commercial autorisé), utilisées comme **illustrations**
   et signalées comme telles dans la galerie. Aucune photo d'un autre restaurant présentée comme celle de Pastrama.
 - Chaque image ajoutée est listée dans `docs/licences.md` (source, auteur ou URL, licence).
@@ -34,6 +35,6 @@
 ## Pages légales
 
 - Le client a demandé de ne pas publier de pages légales ni de mention de copyright (voir `00-lire-en-premier.md`).
-- Aucun cookie non essentiel n'est déposé, donc pas de bandeau cookies. La carte Google Maps ne se charge
-  qu'après un clic explicite de l'utilisateur. Si un outil de mesure est ajouté un jour, il faudra un bandeau
-  (« Accepter » et « Refuser » de même importance) et une politique de cookies.
+- Le site lui-même ne dépose pas de cookie. La carte Google Maps est affichée directement (demande du client) :
+  Google peut y déposer ses propres cookies. Si la loi ou le client l'exigent, revenir à un chargement au clic
+  ou ajouter un bandeau (« Accepter » et « Refuser » de même importance).

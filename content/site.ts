@@ -26,6 +26,8 @@ export const site = {
   mapEmbedUrl:
     "https://maps.google.com/maps?q=33.5872606,-7.6384253&z=16&output=embed",
   phone: { display: "06 78 84 81 81", e164: "+212678848181" },
+  /** Réservation : ouvre WhatsApp avec un message prérempli (numéro du restaurant). */
+  whatsappUrl: `https://wa.me/212678848181?text=${encodeURIComponent("Bonjour Pastrama, je souhaite réserver une table pour ... personnes, le ... à ... h. Merci !")}`,
   email: "manager@pastrama.ma",
   priceRange: "100,00 à 350,00 MAD par personne",
   services: ["Sur place", "À emporter", "Livraison"],

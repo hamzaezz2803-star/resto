@@ -16,6 +16,17 @@ export const heroImage = {
   alt: "Sandwichs de deli empilés, garnis de viande tranchée",
 };
 
+/**
+ * Vidéo du hero : « Burgers on the Grill », RDNE Stock project (Pexels, licence Pexels).
+ * Vraie prise de vue, illustration (pas filmée chez Pastrama). Fichiers hébergés par Pexels.
+ * Pour la production : héberger le fichier sur le site ou utiliser une vidéo du restaurant.
+ */
+export const heroVideo = {
+  large: "https://videos.pexels.com/video-files/8522934/8522934-hd_1920_1080_30fps.mp4",
+  small: "https://videos.pexels.com/video-files/8522934/8522934-hd_1280_720_30fps.mp4",
+  source: "https://www.pexels.com/video/burgers-on-the-grill-8522934/",
+};
+
 export const gallery: GalleryImage[] = [
   { id: "deli-stack", src: u("1738173689012-95fa988f684d"), alt: "Sandwichs de deli empilés, garnis de viande tranchée" },
   { id: "burger-board", src: u("1550547660-d9450f859349"), alt: "Deux burgers servis sur un plateau en bois" },

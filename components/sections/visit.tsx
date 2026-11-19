@@ -1,6 +1,7 @@
 import { Mail, Navigation, Phone } from "lucide-react";
 import { HoursTable } from "@/components/shared/hours-table";
 import { MapEmbed } from "@/components/shared/map-embed";
+import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
@@ -46,16 +47,19 @@ export function Visit() {
                 </li>
               </ul>
             </address>
-            <Button asChild variant="outline" size="lg" className="mt-6">
+            <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+              <WhatsAppButton size="lg" />
+            <Button asChild variant="outline" size="lg">
               <a href={site.directionsUrl} target="_blank" rel="noopener noreferrer">
                 <Navigation aria-hidden="true" />
                 Itinéraire dans Google Maps
                 <span className="sr-only">(nouvel onglet)</span>
               </a>
             </Button>
+            </div>
           </div>
 
-          <div className="relative min-h-[22rem] overflow-hidden rounded-lg border border-rule lg:col-span-7 lg:min-h-0">
+          <div className="relative min-h-[22rem] overflow-hidden rounded-lg border border-rule bg-paper-deep lg:col-span-7 lg:min-h-[32rem]">
             <MapEmbed />
           </div>
         </div>

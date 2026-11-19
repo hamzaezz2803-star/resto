@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star } from "lucide-react";
 import { HeroMotion } from "@/components/motion/hero-motion";
+import { HeroVideo } from "@/components/sections/hero-video";
 import { OpenStatusText } from "@/components/shared/open-status";
+import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { Button } from "@/components/ui/button";
 import { heroImage } from "@/content/gallery";
 import { site } from "@/content/site";
@@ -11,9 +13,9 @@ export function Hero() {
   const { rating, address } = site;
 
   return (
-    <section aria-labelledby="hero-title" className="on-smoke relative isolate overflow-hidden bg-smoke text-paper">
+    <section aria-labelledby="hero-title" className="on-smoke relative overflow-hidden bg-smoke text-paper">
       <HeroMotion className="relative flex min-h-[100svh] flex-col">
-        <div className="absolute inset-0 -z-10" data-hero-image>
+        <div className="absolute inset-0 z-0" data-hero-image>
           <Image
             src={heroImage.src}
             alt={heroImage.alt}
@@ -23,12 +25,13 @@ export function Hero() {
             sizes="100vw"
             className="object-cover object-[60%_40%]"
           />
+          <HeroVideo />
           {/* Voile fonctionnel : garantit le contraste du texte sur la photo */}
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgb(31_26_22/0.94)_0%,rgb(31_26_22/0.6)_45%,rgb(31_26_22/0.3)_100%)]" />
           <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,rgb(31_26_22/0.7)_0%,rgb(31_26_22/0.35)_45%,transparent_75%)] md:block" />
         </div>
 
-        <div className="container-page flex flex-1 flex-col justify-end pt-32 pb-10 md:pb-14">
+        <div className="container-page relative z-10 flex flex-1 flex-col justify-end pt-32 pb-10 md:pb-14">
           <h1 id="hero-title" className="type-display max-w-[14ch] text-[clamp(3.25rem,10.5vw,9.5rem)]">
             <span className="block overflow-hidden pb-[0.06em]">
               <span data-hero-line className="block">Pastrami fumé</span>
@@ -47,16 +50,14 @@ export function Hero() {
           </p>
 
           <div data-hero-fade className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg">
-              <Link href="/#carte">Découvrir la carte</Link>
-            </Button>
+            <WhatsAppButton size="lg" />
             <Button
               asChild
               size="lg"
               variant="outline"
               className="border-paper/50 bg-transparent text-paper hover:bg-paper hover:text-smoke"
             >
-              <Link href="/#infos">Horaires et accès</Link>
+              <Link href="/#carte">Découvrir la carte</Link>
             </Button>
           </div>
 

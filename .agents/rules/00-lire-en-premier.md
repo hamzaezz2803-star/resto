@@ -17,8 +17,12 @@ sauf décision explicite du client notée ici.
 
 ## Décisions prises
 
-- **Site vitrine uniquement** (décision du client, 19 novembre 2026) : il présente le restaurant (maison, carte, galerie, avis,
-  horaires et accès). **Aucun bouton ni lien « Commander » ou « Réserver »**, aucun formulaire. Le contact se fait par téléphone, e-mail ou sur place.
+- **Site vitrine** (décision du client, 19 novembre 2026) : il présente le restaurant (maison, carte, galerie, avis,
+  horaires et accès). **Pas de commande en ligne ni de formulaire.** La seule action est le bouton **« Réserver »**,
+  qui ouvre WhatsApp (`site.whatsappUrl`, message prérempli vers le 06 78 84 81 81), via le composant `WhatsAppButton`.
+- **Carte Google Maps affichée directement** (décision du client), en chargement différé (`loading="lazy"`).
+- **Hero en vidéo** (décision du client) : vidéo d'ambiance en boucle, muette, au-dessus de la photo du hero,
+  avec bouton pause. Désactivée si `prefers-reduced-motion` ou économie de données.
 - **Pas de pages légales ni de mention de copyright** sur ce site (décision du client, 19 novembre 2026),
   bien que la règle studio les demande pour un site public. Ne pas les rajouter sans nouvelle demande du client.
 - **Pas de parallaxe** ni d'animation sur chaque section (règle studio), même si le brief initial en mentionnait.

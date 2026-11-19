@@ -7,7 +7,7 @@
   chargement différé pour le reste. Formats AVIF/WebP via `images.formats`. Qualités autorisées : `[60, 75]`.
 - Polices : `next/font`, `display: swap`, sous-ensemble `latin`.
 - Le JavaScript client reste limité aux îlots interactifs. GSAP ScrollTrigger enregistré une seule fois.
-- Pas d'iframe chargée au démarrage (la carte se charge au clic).
+- La carte Google Maps est en `loading="lazy"`. La vidéo du hero ne bloque pas le LCP (la photo reste l'image affichée en premier).
 - Aucun débordement horizontal (`overflow-x: clip` sur `body` interdit comme rustine : corriger la cause).
 
 ## Accessibilité (WCAG 2.2 AA)
@@ -29,7 +29,8 @@
 - [ ] Contraste, clavier et `alt` vérifiés.
 - [ ] Testé à 360 px, 768 px, 1280 px et plus.
 - [ ] Photos authentiques ou sous licence, `docs/licences.md` à jour ; photos d'illustration remplacées si possible.
-- [ ] Aucun lien « Commander » ou « Réserver » (site vitrine).
+- [ ] Aucun lien « Commander » ; « Réserver » ouvre uniquement WhatsApp.
+- [ ] Vidéo du hero : pause accessible, absente en mouvement réduit, fichier hébergé de façon fiable.
 - [ ] Avis cités mot pour mot, accord des auteurs obtenu.
 - [ ] Favicon en place, `NEXT_PUBLIC_SITE_URL` réglé sur le domaine réel.
 - [ ] `npm run lint` et `npm run build` sans erreur, console du navigateur propre.

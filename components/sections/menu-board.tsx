@@ -133,9 +133,9 @@ function MenuRow({ item }: { item: MenuItem }) {
   return (
     <li data-menu-row className="break-inside-avoid border-b border-paper/10 py-4">
       <div className="flex items-baseline gap-3">
-        <span className="type-heading text-[1.5rem] leading-tight md:text-[1.625rem]">{item.name}</span>
-        <span aria-hidden="true" className="min-w-6 flex-1 translate-y-[-0.3em] border-b-2 border-dotted border-paper/25" />
-        <span className="shrink-0 text-right font-semibold text-mustard tabular-nums">{formatPrice(item.price)}</span>
+        <span className="type-heading min-w-0 flex-1 text-[1.5rem] leading-tight [overflow-wrap:anywhere] sm:flex-none md:text-[1.625rem]">{item.name}</span>
+        <span aria-hidden="true" className="hidden min-w-6 flex-1 translate-y-[-0.3em] border-b-2 border-dotted border-paper/25 sm:block" />
+        <span className="shrink-0 text-right font-semibold whitespace-nowrap text-mustard tabular-nums">{formatPrice(item.price)}</span>
       </div>
       {item.note ? <p className="mt-1 text-[0.9375rem] text-on-smoke-muted">{item.note}</p> : null}
     </li>

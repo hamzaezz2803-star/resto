@@ -1,4 +1,4 @@
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Star, StarHalf } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { reviews } from "@/content/reviews";
@@ -8,9 +8,17 @@ import { cn } from "@/lib/utils";
 function Stars({ value, className }: { value: number; className?: string }) {
   return (
     <span className={cn("flex items-center gap-0.5", className)} aria-hidden="true">
-      {Array.from({ length: 5 }, (_, i) => (
-        <Star key={i} className={cn("size-4 text-pastrami", i < Math.round(value) && "fill-pastrami")} />
-      ))}
+      {Array.from({ length: 5 }, (_, i) => {
+        const half = i === Math.floor(value) && value % 1 >= 0.5;
+        return half ? (
+          <span key={i} className="relative size-4">
+            <Star className="absolute inset-0 size-4 text-pastrami" />
+            <StarHalf className="absolute inset-0 size-4 fill-pastrami text-pastrami" />
+          </span>
+        ) : (
+          <Star key={i} className={cn("size-4 text-pastrami", i < Math.floor(value) && "fill-pastrami")} />
+        );
+      })}
     </span>
   );
 }

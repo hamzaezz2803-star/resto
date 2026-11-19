@@ -34,6 +34,14 @@ Elles ne représentent pas les plats ni la salle de Pastrama et sont signalées 
 | Galerie | https://unsplash.com/photos/iRHIJs-f1dg |
 | Galerie | https://unsplash.com/photos/s8_7AqkzCWY |
 
+## Vidéo
+
+| Usage | Source | Licence |
+| --- | --- | --- |
+| Hero (vidéo d'ambiance) | « Burgers on the Grill », RDNE Stock project : https://www.pexels.com/video/burgers-on-the-grill-8522934/ | [Licence Pexels](https://www.pexels.com/license/), usage commercial autorisé |
+
+Vraie prise de vue, mais pas filmée chez Pastrama : à remplacer par une vidéo du restaurant.
+
 ## Bibliothèques
 
 Next.js (MIT), React (MIT), Tailwind CSS (MIT), shadcn/ui et Radix UI (MIT), Motion (MIT),
