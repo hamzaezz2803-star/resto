@@ -1,26 +1,166 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * Design system Pastrama : voir .agents/rules/01-identite-et-design.md
+ * Les couleurs sont définies ici et nulle part ailleurs.
+ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette de marque */
+  --paper: #f7f3ec;
+  --paper-deep: #efe8dc;
+  --smoke: #1f1a16;
+  --smoke-soft: #2b2520;
+  --ink-soft: #5a4f45;
+  --pastrami: #a3271f;
+  --pastrami-hover: #8a1f18;
+  --mustard: #e9a825;
+  --rule: #ddd3c5;
+  --on-smoke-muted: #c9bdae;
+
+  /* Statuts */
+  --success: #2e6b3a;
+  --warning: #8a5a00;
+  --error: #b3261e;
+
+  /* Jetons shadcn reliés à la palette */
+  --background: var(--paper);
+  --foreground: var(--smoke);
+  --card: var(--paper);
+  --card-foreground: var(--smoke);
+  --popover: var(--paper);
+  --popover-foreground: var(--smoke);
+  --primary: var(--pastrami);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--smoke);
+  --muted: var(--paper-deep);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--paper-deep);
+  --accent-foreground: var(--smoke);
+  --destructive: var(--error);
+  --border: var(--rule);
+  --input: #b9ab98;
+  --ring: var(--pastrami);
+  --radius: 0.5rem;
 }
 
 @theme inline {
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-smoke: var(--smoke);
+  --color-smoke-soft: var(--smoke-soft);
+  --color-ink-soft: var(--ink-soft);
+  --color-pastrami: var(--pastrami);
+  --color-pastrami-hover: var(--pastrami-hover);
+  --color-mustard: var(--mustard);
+  --color-rule: var(--rule);
+  --color-on-smoke-muted: var(--on-smoke-muted);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-display);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.625rem;
+  --radius-2xl: 0.75rem;
+
+  --ease-deli: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  :focus-visible {
+    outline: 3px solid var(--pastrami);
+    outline-offset: 3px;
+  }
+  .on-smoke :focus-visible {
+    outline-color: var(--mustard);
+  }
+  ::selection {
+    background: var(--mustard);
+    color: var(--smoke);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  /* Titres d'affiche : Bricolage Grotesque condensée et lourde */
+  .type-display {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 75, "opsz" 96;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+  }
+  .type-heading {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 80, "opsz" 48;
+    font-weight: 750;
+    letter-spacing: -0.015em;
+    line-height: 1;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
