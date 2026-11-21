@@ -41,7 +41,7 @@ export const site = {
     )}`,
   email: "bonjour@example.com",
   priceRange: "60,00 à 220,00 MAD par personne",
-  services: ["Petit-déjeuner", "Déjeuner", "Dîner", "Café toute la journée"],
+  services: ["Petit-déjeuner", "déjeuner", "dîner", "café toute la journée"],
   /** Horaires d'ouverture, heure de Casablanca. */
   hours: {
     1: [{ open: "08:00", close: "23:00" }],

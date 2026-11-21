@@ -22,8 +22,8 @@ export const gallery: GalleryImage[] = [
   { id: "cafes", src: u("1495474472287-4d71bcdd2085"), alt: "Trois cafés au lait trinqués au-dessus d'une table" },
   { id: "bowls", src: u("1490645935967-10de6ba17061"), alt: "Plusieurs bols de cuisine colorée sur une table" },
   { id: "terrasse", src: u("1559925393-8be0ec4767c8"), alt: "Terrasse d'un café avec tables et ardoise" },
-  { id: "pates", src: u("1473093295043-cdd812d0e601"), alt: "Assiette de pâtes à la tomate et au basilic" },
-  { id: "comptoir", src: u("1528207776546-365bb710ee93"), alt: "Intérieur d'un café avec banquettes et suspensions" },
+  { id: "pates", src: u("1473093295043-cdd812d0e601"), alt: "Salade de pâtes aux tomates cerises et au basilic" },
+  { id: "pancakes", src: u("1528207776546-365bb710ee93"), alt: "Pancakes au sirop, banane et myrtilles" },
   { id: "dessert", src: u("1578985545062-69928b1d9587"), alt: "Gâteau au chocolat sur une assiette" },
-  { id: "diner", src: u("1559339352-11d035aa65de"), alt: "Salle de restaurant le soir, lumière tamisée" },
+  { id: "terrasse-mer", src: u("1559339352-11d035aa65de"), alt: "Terrasse couverte d'un restaurant face à la mer" },
 ];

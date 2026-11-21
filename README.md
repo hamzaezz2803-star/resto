@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modèle de site vitrine pour restaurants et cafés
 
-## Getting Started
+Site de démonstration (marque fictive **Maison Olive**) à présenter aux restaurants et cafés.
+Le site présente l'établissement : assiettes, maison, carte, galerie, horaires et accès.
+**Aucune commande ni paiement en ligne** : la seule action est la réservation, qui ouvre WhatsApp avec un message prérempli.
 
-First, run the development server:
+## Lancer le projet
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Adapter le site à un client
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tout le contenu est dans `content/`, aucun texte n'est écrit en dur dans les composants.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Fichier | Contenu |
+| --- | --- |
+| `content/site.ts` | Nom, adresse, coordonnées GPS, téléphone, **numéro WhatsApp**, e-mail, horaires, liens du menu |
+| `content/menu.ts` | La carte complète (catégories, plats, prix en MAD) |
+| `content/dishes.ts` | Les assiettes du hero et du tapis tournant, commentaires clients |
+| `content/gallery.ts` | Photos de la section « La maison » et de la galerie |
 
-## Learn More
+Ensuite : remplacer `app/icon.svg` et `LogoMark` (`components/shared/logo.tsx`) par le logo du client,
+régler `NEXT_PUBLIC_SITE_URL`, et remplacer les photos d'illustration et les commentaires d'exemple
+par de vrais contenus (voir `.agents/rules/04-contenu-et-legal.md`).
 
-To learn more about Next.js, take a look at the following resources:
+## Sections
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Hero** : titre, réservation WhatsApp, assiette principale + vignettes + commentaires synchronisés
+   (d'après le composant shadcn-studio *hero-section-41*, `components/sections/hero-plates.tsx`).
+2. **Les assiettes du moment** : tapis tournant interactif (d'après *sushi-conveyor-menu*,
+   `components/ui/sushi-conveyor-menu.tsx`). La fenêtre d'une assiette propose « Réserver pour la goûter » sur WhatsApp.
+3. **La maison**, 4. **La carte** (onglets), 5. **Galerie**, 6. **Nous trouver** (Google Maps, horaires, contact).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Vérifications
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```

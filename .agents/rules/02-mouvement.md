@@ -6,10 +6,9 @@ Chaque animation doit avoir une raison. Si on ne sait pas dire ce qu'elle expliq
 
 | Outil | Usage autorisé |
 | --- | --- |
-| **GSAP** + `@gsap/react` (`useGSAP`) | Séquence d'ouverture du hero, révélation du tableau de la carte au défilement (ScrollTrigger). |
+| **GSAP** + `@gsap/react` (`useGSAP`) | Séquence d'ouverture du hero, révélation de la carte au défilement (ScrollTrigger). |
 | **Motion** (`motion/react`) | Interactions d'interface : changement d'onglet de la carte, indicateur d'onglet, visionneuse de la galerie, apparition de l'en-tête. |
 | **Lenis** | Défilement fluide global, synchronisé avec ScrollTrigger (`lenis.on("scroll", ScrollTrigger.update)` et `gsap.ticker`). |
-| `<video>` natif | Vidéo d'ambiance du hero uniquement (`components/sections/hero-video.tsx`) : muette, en boucle, bouton pause, absente si mouvement réduit ou économie de données. |
 | CSS (`transition`) | Survols et états des boutons, liens, cartes. |
 
 Ne pas utiliser deux bibliothèques pour la même animation. Pas de nouvelle bibliothèque d'animation.
@@ -26,3 +25,10 @@ Ne pas utiliser deux bibliothèques pour la même animation. Pas de nouvelle bib
 - Le contenu doit être lisible sans JavaScript : l'état initial masqué n'est appliqué que par le JavaScript client.
 - La logique d'animation vit dans `components/motion/` ou dans le composant client concerné, jamais dans une page serveur.
 - Toujours nettoyer (`useGSAP` gère le contexte ; `lenis.destroy()` au démontage).
+
+## Exceptions validées (21 novembre 2026)
+
+- **Carrousels du hero** (Embla + `embla-carousel-autoplay`) : défilement automatique toutes les 3,8 s,
+  bouton pause visible, coupé si `prefers-reduced-motion`.
+- **Tapis tournant** (`components/ui/sushi-conveyor-menu.tsx`) : animation continue par `requestAnimationFrame`,
+  qui s'arrête au survol, au focus, hors écran et en mouvement réduit ; boutons précédent, pause, suivant.
