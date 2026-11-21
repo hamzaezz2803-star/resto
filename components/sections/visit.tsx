@@ -10,7 +10,7 @@ export function Visit() {
   const { address } = site;
 
   return (
-    <section id="infos" aria-labelledby="infos-title" className="border-t border-rule py-20 md:py-28">
+    <section id="infos" aria-labelledby="infos-title" className="border-t border-line py-20 md:py-28">
       <div className="container-page">
         <SectionHeading
           id="infos-title"
@@ -34,14 +34,14 @@ export function Visit() {
               </p>
               <ul className="mt-4 space-y-1">
                 <li>
-                  <a href={`tel:${site.phone.e164}`} className="inline-flex min-h-11 items-center gap-3 hover:text-pastrami">
-                    <Phone className="size-5 text-pastrami" aria-hidden="true" />
+                  <a href={`tel:${site.phone.e164}`} className="inline-flex min-h-11 items-center gap-3 hover:text-brass-deep">
+                    <Phone className="size-5 text-brass-deep" aria-hidden="true" />
                     {site.phone.display}
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${site.email}`} className="inline-flex min-h-11 items-center gap-3 break-all hover:text-pastrami">
-                    <Mail className="size-5 text-pastrami" aria-hidden="true" />
+                  <a href={`mailto:${site.email}`} className="inline-flex min-h-11 items-center gap-3 break-all hover:text-brass-deep">
+                    <Mail className="size-5 text-brass-deep" aria-hidden="true" />
                     {site.email}
                   </a>
                 </li>
@@ -59,7 +59,7 @@ export function Visit() {
             </div>
           </div>
 
-          <div className="relative min-h-[22rem] overflow-hidden rounded-lg border border-rule bg-paper-deep lg:col-span-7 lg:min-h-[32rem]">
+          <div className="relative min-h-[22rem] overflow-hidden rounded-lg border border-line bg-porcelain-deep lg:col-span-7 lg:min-h-[32rem]">
             <MapEmbed />
           </div>
         </div>

@@ -36,7 +36,7 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
             <button
               type="button"
               onClick={() => setIndex(i)}
-              className="group relative block size-full overflow-hidden rounded-lg bg-smoke"
+              className="group relative block size-full overflow-hidden rounded-lg bg-forest"
               aria-label={`Agrandir la photo : ${img.alt}`}
             >
               <Image
@@ -56,7 +56,7 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
         <DialogContent
           showCloseButton={false}
           onKeyDown={onKeyDown}
-          className="on-smoke flex h-[100dvh] max-h-none w-screen max-w-none flex-col gap-0 rounded-none bg-smoke p-0 text-paper ring-0 sm:max-w-none"
+          className="dark flex h-[100dvh] max-h-none w-screen max-w-none flex-col gap-0 rounded-none bg-forest p-0 text-porcelain ring-0 sm:max-w-none"
         >
           <DialogTitle className="sr-only">Galerie photo</DialogTitle>
           <DialogDescription className="sr-only">
@@ -64,11 +64,11 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
           </DialogDescription>
 
           <div className="flex h-16 shrink-0 items-center justify-between px-4 sm:px-6">
-            <p className="tabular-nums text-on-smoke-muted" aria-live="polite">
+            <p className="tabular-nums text-on-forest-muted" aria-live="polite">
               {index !== null ? `${index + 1} / ${images.length}` : null}
             </p>
             <DialogClose asChild>
-              <Button variant="ghost" size="icon" className="text-paper hover:bg-paper/10 hover:text-paper" aria-label="Fermer la galerie">
+              <Button variant="ghost" size="icon" className="text-porcelain hover:bg-porcelain/10 hover:text-porcelain" aria-label="Fermer la galerie">
                 <X className="size-6" aria-hidden="true" />
               </Button>
             </DialogClose>
@@ -92,11 +92,11 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
           </div>
 
           <div className="flex shrink-0 items-center justify-between gap-4 px-4 py-4 sm:px-6">
-            <Button variant="ghost" size="icon" onClick={() => go(-1)} className="text-paper hover:bg-paper/10 hover:text-paper" aria-label="Photo précédente">
+            <Button variant="ghost" size="icon" onClick={() => go(-1)} className="text-porcelain hover:bg-porcelain/10 hover:text-porcelain" aria-label="Photo précédente">
               <ChevronLeft className="size-6" aria-hidden="true" />
             </Button>
-            <p className="line-clamp-2 text-center text-on-smoke-muted">{current?.alt}</p>
-            <Button variant="ghost" size="icon" onClick={() => go(1)} className="text-paper hover:bg-paper/10 hover:text-paper" aria-label="Photo suivante">
+            <p className="line-clamp-2 text-center text-on-forest-muted">{current?.alt}</p>
+            <Button variant="ghost" size="icon" onClick={() => go(1)} className="text-porcelain hover:bg-porcelain/10 hover:text-porcelain" aria-label="Photo suivante">
               <ChevronRight className="size-6" aria-hidden="true" />
             </Button>
           </div>

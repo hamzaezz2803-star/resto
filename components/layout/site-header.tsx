@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Logo } from "@/components/shared/logo";
 import { WhatsAppButton } from "@/components/shared/whatsapp-button";
@@ -10,21 +9,17 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 import { navLinks } from "@/content/site";
 import { cn } from "@/lib/utils";
 
+/** En-tête fixe : transparent en haut de page, fond porcelaine et filet dès qu'on défile. */
 export function SiteHeader() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
-    setScrolled(y > 48);
-    setHidden(y > 480 && y > prev);
+    setScrolled(y > 8);
+    setHidden(y > 560 && y > prev);
   });
-
-  // Sur l'accueil, l'en-tête est posé sur la photo sombre du hero tant qu'on n'a pas défilé.
-  const overHero = isHome && !scrolled;
 
   return (
     <motion.header
@@ -32,10 +27,10 @@ export function SiteHeader() {
       animate={{ y: hidden ? "-100%" : "0%" }}
       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200",
-        overHero
-          ? "on-smoke border-transparent bg-transparent text-paper"
-          : "border-rule bg-paper/95 text-smoke backdrop-blur-sm",
+        "fixed inset-x-0 top-0 z-50 border-b text-forest transition-[background-color,border-color,box-shadow] duration-200",
+        scrolled
+          ? "border-line bg-porcelain/95 shadow-[0_8px_24px_-18px_rgb(16_48_42/0.45)] backdrop-blur-sm"
+          : "border-transparent bg-transparent",
       )}
     >
       <div className="container-page flex h-[4.5rem] items-center justify-between gap-6">
@@ -47,10 +42,7 @@ export function SiteHeader() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={cn(
-                    "relative inline-flex min-h-11 items-center px-3 text-[0.9375rem] font-medium",
-                    "after:absolute after:inset-x-3 after:bottom-2 after:h-0.5 after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-150 hover:after:scale-x-100",
-                  )}
+                  className="inline-flex min-h-11 items-center rounded-full px-4 text-[0.9375rem] font-medium text-moss transition-colors duration-150 hover:bg-porcelain-deep hover:text-forest"
                 >
                   {link.label}
                 </Link>
@@ -60,15 +52,8 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <WhatsAppButton
-            label="Réserver"
-            variant="outline"
-            className={cn(
-              "hidden md:inline-flex",
-              overHero && "border-paper/60 bg-transparent text-paper hover:bg-paper hover:text-smoke",
-            )}
-          />
-          <MobileNav overHero={overHero} />
+          <WhatsAppButton label="Réserver" className="hidden sm:inline-flex" />
+          <MobileNav />
         </div>
       </div>
     </motion.header>

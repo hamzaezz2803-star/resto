@@ -1,32 +1,31 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist } from "next/font/google";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { MotionProviders } from "@/components/motion/motion-providers";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin"],
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
-  subsets: ["latin"],
-  axes: ["wdth", "opsz"],
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
+  subsets: ["latin", "latin-ext"],
+  axes: ["opsz"],
   display: "swap",
 });
 
-const description =
-  "Deli new-yorkais et burgers craft à Casablanca (Maarif). Pastrami fumé 12 heures, pain au levain maison. Sur place, à emporter et en livraison. Ouvert tous les jours.";
+const description = `${site.fullName} à ${site.address.city}. Cuisine du marché midi et soir, café de spécialité toute la journée. Consultez la carte et réservez votre table sur WhatsApp.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Pastrama, deli et burgers craft à Casablanca (Maarif)",
-    template: "%s | Pastrama",
+    default: `${site.name}, restaurant et café à ${site.address.city}`,
+    template: `%s | ${site.name}`,
   },
   description,
   applicationName: site.name,
@@ -35,33 +34,33 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_MA",
     siteName: site.fullName,
-    title: "Pastrama, deli et burgers craft à Casablanca",
+    title: `${site.name}, restaurant et café`,
     description,
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pastrama, deli et burgers craft à Casablanca",
+    title: `${site.name}, restaurant et café`,
     description,
   },
   formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1f1a16",
+  themeColor: "#10302a",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr" className={`${geist.variable} ${bricolage.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${manrope.variable} ${bodoni.variable}`} suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col">
         {/* Marque la présence de JS avant le premier rendu (évite un flash avant la séquence du hero) */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <a
           href="#contenu"
-          className="sr-only z-[60] rounded-lg bg-smoke px-4 py-3 text-paper focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-[60] rounded-full bg-forest px-4 py-3 text-porcelain focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           Aller au contenu
         </a>

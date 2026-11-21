@@ -26,13 +26,13 @@ export function House() {
               intro="Pastrama est né d'une envie simple : retrouver au Maarif l'esprit des delis de New York. Des viandes travaillées sur place, des produits choisis avec soin, et le savoir-faire de l'équipe de La Fonda."
             />
           </div>
-          <ul className="flex flex-col divide-y divide-rule border-y border-rule lg:col-span-5 lg:self-end">
+          <ul className="flex flex-col divide-y divide-line border-y border-line lg:col-span-5 lg:self-end">
             {promises.map(({ icon: Icon, title, text }) => (
               <li key={title} className="flex gap-4 py-5">
-                <Icon className="mt-1 size-6 shrink-0 text-pastrami" aria-hidden="true" />
+                <Icon className="mt-1 size-6 shrink-0 text-brass-deep" aria-hidden="true" />
                 <div>
                   <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="text-ink-soft">{text}</p>
+                  <p className="text-moss">{text}</p>
                 </div>
               </li>
             ))}
@@ -49,7 +49,7 @@ export function House() {
               ))}
             </div>
           </div>
-          <p className="mt-6 text-sm text-ink-soft">Photos d&apos;illustration. Prix relevés sur pastrama.ma.</p>
+          <p className="mt-6 text-sm text-moss">Photos d&apos;illustration. Prix relevés sur pastrama.ma.</p>
         </div>
       </div>
     </section>
@@ -69,13 +69,13 @@ function DishFigure({
 }) {
   return (
     <figure className={cn("flex flex-col", className)}>
-      <div className={cn("relative overflow-hidden rounded-lg bg-smoke", aspect)}>
+      <div className={cn("relative overflow-hidden rounded-lg bg-forest", aspect)}>
         <Image src={dish.image.src} alt={dish.image.alt} fill sizes={sizes} quality={60} className="object-cover" />
       </div>
       <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
         <span className="type-heading text-[1.75rem]">{dish.name}</span>
-        <span className="font-semibold text-pastrami tabular-nums">{formatPrice(dish.price)}</span>
-        <span className="w-full max-w-[48ch] text-ink-soft">{dish.description}</span>
+        <span className="font-semibold text-brass-deep tabular-nums">{formatPrice(dish.price)}</span>
+        <span className="w-full max-w-[48ch] text-moss">{dish.description}</span>
       </figcaption>
     </figure>
   );

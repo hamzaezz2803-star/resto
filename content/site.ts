@@ -1,55 +1,59 @@
 /**
- * Coordonnées et informations du restaurant.
- * Source : pastrama.ma et fiche Google (relevé de novembre 2026).
- * Ne jamais inventer une valeur.
+ * Identité et coordonnées de l'établissement.
+ *
+ * Ce site est un modèle de démonstration pour restaurants et cafés :
+ * le nom, l'adresse, le numéro WhatsApp et les horaires ci-dessous sont des exemples.
+ * Pour livrer le site à un client, il suffit de remplacer les valeurs de ce fichier
+ * (et le contenu de content/menu.ts, content/gallery.ts, content/dishes.ts).
  */
 
 export type DayKey = 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0 = dimanche (comme Date.getDay)
 
 export type TimeRange = { open: string; close: string };
 
+/** Numéro WhatsApp de démonstration, au format international sans « + ». */
+const whatsappNumber = "212600000000";
+
 export const site = {
-  name: "Pastrama",
-  fullName: "Pastrama, Deli & Craft Burger",
-  tagline: "New York deli, Casablanca style",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://pastrama.ma",
+  name: "Maison Olive",
+  fullName: "Maison Olive, restaurant et café",
+  tagline: "Restaurant et café",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
   address: {
-    street: "Rue Oumayma Essayeh",
-    district: "Maarif",
+    street: "Boulevard d'Anfa",
+    district: "Racine",
     city: "Casablanca",
-    postalCode: "20250",
+    postalCode: "20000",
     country: "MA",
   },
-  geo: { lat: 33.5872606, lng: -7.6384253 },
-  directionsUrl:
-    "https://www.google.com/maps/dir/?api=1&destination=33.5872606,-7.6384253",
-  mapEmbedUrl:
-    "https://maps.google.com/maps?q=33.5872606,-7.6384253&z=16&output=embed",
-  phone: { display: "06 78 84 81 81", e164: "+212678848181" },
-  /** Réservation : ouvre WhatsApp avec un message prérempli (numéro du restaurant). */
-  whatsappUrl: `https://wa.me/212678848181?text=${encodeURIComponent("Bonjour Pastrama, je souhaite réserver une table pour ... personnes, le ... à ... h. Merci !")}`,
-  email: "manager@pastrama.ma",
-  priceRange: "100,00 à 350,00 MAD par personne",
-  services: ["Sur place", "À emporter", "Livraison"],
-  rating: {
-    value: 4.5,
-    count: 2179,
-    source: "Google",
-    checkedOn: "novembre 2026",
-    url: "https://www.google.com/maps/search/?api=1&query=Pastrama+Deli+%26+Craft+Burger+Casablanca",
-  },
+  geo: { lat: 33.5883, lng: -7.6324 },
+  directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=33.5883,-7.6324",
+  mapEmbedUrl: "https://maps.google.com/maps?q=33.5883,-7.6324&z=16&output=embed",
+  phone: { display: "06 00 00 00 00", e164: "+212600000000" },
+  /** Réservation : ouvre WhatsApp avec un message prérempli. */
+  whatsappUrl: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    "Bonjour Maison Olive, je souhaite réserver une table pour ... personnes, le ... à ... h. Merci !",
+  )}`,
+  /** Question sur un plat : message prérempli avec le nom du plat. */
+  whatsappAbout: (dish: string) =>
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      `Bonjour Maison Olive, je souhaite réserver une table et j'ai une question sur « ${dish} ».`,
+    )}`,
+  email: "bonjour@example.com",
+  priceRange: "60,00 à 220,00 MAD par personne",
+  services: ["Petit-déjeuner", "Déjeuner", "Dîner", "Café toute la journée"],
   /** Horaires d'ouverture, heure de Casablanca. */
   hours: {
-    1: [{ open: "09:30", close: "23:30" }],
-    2: [{ open: "09:30", close: "23:30" }],
-    3: [{ open: "09:30", close: "23:30" }],
-    4: [{ open: "09:30", close: "23:30" }],
+    1: [{ open: "08:00", close: "23:00" }],
+    2: [{ open: "08:00", close: "23:00" }],
+    3: [{ open: "08:00", close: "23:00" }],
+    4: [{ open: "08:00", close: "23:00" }],
     5: [
-      { open: "09:30", close: "12:30" },
-      { open: "13:30", close: "23:30" },
+      { open: "08:00", close: "12:30" },
+      { open: "14:00", close: "23:30" },
     ],
-    6: [{ open: "09:30", close: "23:30" }],
-    0: [{ open: "09:30", close: "23:30" }],
+    6: [{ open: "09:00", close: "23:30" }],
+    0: [{ open: "09:00", close: "22:00" }],
   } satisfies Record<DayKey, TimeRange[]>,
 } as const;
 
@@ -67,9 +71,9 @@ export const dayNames: Record<DayKey, string> = {
 export const weekOrder: DayKey[] = [1, 2, 3, 4, 5, 6, 0];
 
 export const navLinks = [
-  { href: "/#carte", label: "La carte" },
+  { href: "/#assiettes", label: "Les assiettes" },
   { href: "/#maison", label: "La maison" },
+  { href: "/#carte", label: "La carte" },
   { href: "/#galerie", label: "Galerie" },
-  { href: "/#avis", label: "Avis" },
-  { href: "/#infos", label: "Horaires et accès" },
+  { href: "/#infos", label: "Nous trouver" },
 ] as const;

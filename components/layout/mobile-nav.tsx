@@ -13,34 +13,28 @@ import {
 } from "@/components/ui/sheet";
 import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { navLinks, site } from "@/content/site";
-import { cn } from "@/lib/utils";
 
-export function MobileNav({ overHero }: { overHero: boolean }) {
+export function MobileNav() {
   const [open, setOpen] = useState(false);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className={cn("lg:hidden", overHero && "text-paper hover:bg-paper/15 hover:text-paper")}
-          aria-label="Ouvrir le menu"
-        >
-          <Menu className="size-6" aria-hidden="true" />
+        <Button variant="outline" size="icon" className="bg-transparent lg:hidden" aria-label="Ouvrir le menu">
+          <Menu className="size-5" aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-full gap-0 bg-smoke p-0 text-paper sm:max-w-md on-smoke [&>[data-slot=sheet-close]]:top-4 [&>[data-slot=sheet-close]]:right-4 [&>[data-slot=sheet-close]]:size-11 [&>[data-slot=sheet-close]]:text-paper [&>[data-slot=sheet-close]]:hover:bg-paper/10">
+      <SheetContent side="right" className="dark w-full gap-0 bg-forest p-0 text-porcelain sm:max-w-md [&>[data-slot=sheet-close]]:top-4 [&>[data-slot=sheet-close]]:right-4 [&>[data-slot=sheet-close]]:size-11 [&>[data-slot=sheet-close]]:text-porcelain [&>[data-slot=sheet-close]]:hover:bg-porcelain/10">
         <SheetTitle className="sr-only">Menu</SheetTitle>
-        <SheetDescription className="sr-only">Navigation du site Pastrama</SheetDescription>
+        <SheetDescription className="sr-only">Navigation du site {site.name}</SheetDescription>
         <nav aria-label="Navigation mobile" className="flex flex-1 flex-col px-6 pt-24 pb-8">
           <ul className="flex flex-col">
             {navLinks.map((link) => (
-              <li key={link.href} className="border-b border-paper/15">
+              <li key={link.href} className="border-b border-forest-line">
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="type-heading flex min-h-16 items-center text-[2.5rem] transition-colors duration-150 hover:text-mustard"
+                  className="type-display flex min-h-16 items-center text-[2.5rem] transition-colors duration-150 hover:text-brass"
                 >
                   {link.label}
                 </Link>
@@ -51,7 +45,7 @@ export function MobileNav({ overHero }: { overHero: boolean }) {
             <WhatsAppButton size="lg" />
             <a
               href={`tel:${site.phone.e164}`}
-              className="inline-flex min-h-11 items-center justify-center gap-2 text-on-smoke-muted hover:text-paper"
+              className="inline-flex min-h-11 items-center justify-center gap-2 text-on-forest-muted hover:text-porcelain"
             >
               <Phone className="size-4" aria-hidden="true" />
               {site.phone.display}

@@ -12,7 +12,7 @@ export function GallerySection() {
           intro="Sandwichs, burgers, grillades et desserts. Touchez une photo pour l'agrandir."
         />
         <GalleryGrid images={gallery} />
-        <p className="mt-6 text-sm text-ink-soft">
+        <p className="mt-6 text-sm text-moss">
           Photos d&apos;illustration (Unsplash), en attendant les photos du restaurant.
         </p>
       </div>

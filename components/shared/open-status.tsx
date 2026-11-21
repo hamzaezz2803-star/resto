@@ -24,7 +24,7 @@ export function OpenStatusText({ className }: { className?: string }) {
     return (
       <span className={cn("inline-flex items-center gap-2", className)}>
         <Clock className="size-4" aria-hidden="true" />
-        Ouvert tous les jours dès 09:30
+        Ouvert tous les jours
       </span>
     );
   }
@@ -33,7 +33,7 @@ export function OpenStatusText({ className }: { className?: string }) {
     <span className={cn("inline-flex items-center gap-2", className)}>
       <span
         aria-hidden="true"
-        className={cn("size-2 rounded-full", status.open ? "bg-open-on-smoke" : "bg-mustard")}
+        className={cn("size-2 rounded-full", status.open ? "bg-open-on-forest" : "bg-brass")}
       />
       {status.open
         ? `Ouvert maintenant, jusqu'à ${status.closesAt}`
