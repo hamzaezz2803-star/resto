@@ -82,7 +82,7 @@ const LIFT_Y = -6;
 const LIFT_SCALE = 0.08;
 const BACK_SHADE = 0.15;
 const CHIP_ROOM = 34;
-const WIDE = 1024;
+const WIDE = 1200;
 const HOLD = 1400;
 const RUN = 0;
 const SEEK = 1;
@@ -101,12 +101,12 @@ const TIERS = [
   { ring: "border-chart-5", dot: "bg-chart-5" },
 ] as const;
 const THEME =
-  "[--belt:color-mix(in_oklab,var(--color-foreground)_78%,var(--color-background))] dark:[--belt:color-mix(in_oklab,var(--color-foreground)_14%,var(--color-background))] " +
-  "[--belt-side:color-mix(in_oklab,var(--color-foreground)_92%,var(--color-background))] dark:[--belt-side:color-mix(in_oklab,black_35%,var(--color-background))] " +
-  "[--rail:color-mix(in_oklab,var(--color-muted-foreground)_45%,white)] dark:[--rail:var(--brass)] " +
-  "[--island:color-mix(in_oklab,var(--color-muted-foreground)_16%,var(--color-background))] dark:[--island:color-mix(in_oklab,var(--color-foreground)_10%,var(--color-background))] " +
-  "[--island-low:color-mix(in_oklab,var(--color-muted-foreground)_27%,var(--color-background))] dark:[--island-low:color-mix(in_oklab,var(--color-foreground)_5%,var(--color-background))] " +
-  "[--island-wall:color-mix(in_oklab,var(--color-muted-foreground)_42%,var(--color-background))] dark:[--island-wall:color-mix(in_oklab,black_30%,var(--color-background))]";
+  "[--belt:color-mix(in_oklab,var(--foreground)_78%,var(--background))] dark:[--belt:color-mix(in_oklab,var(--foreground)_14%,var(--background))] " +
+  "[--belt-side:color-mix(in_oklab,var(--foreground)_92%,var(--background))] dark:[--belt-side:color-mix(in_oklab,black_35%,var(--background))] " +
+  "[--rail:color-mix(in_oklab,var(--muted-foreground)_45%,white)] dark:[--rail:var(--brass)] " +
+  "[--island:color-mix(in_oklab,var(--muted-foreground)_16%,var(--background))] dark:[--island:color-mix(in_oklab,var(--foreground)_10%,var(--background))] " +
+  "[--island-low:color-mix(in_oklab,var(--muted-foreground)_27%,var(--background))] dark:[--island-low:color-mix(in_oklab,var(--foreground)_5%,var(--background))] " +
+  "[--island-wall:color-mix(in_oklab,var(--muted-foreground)_42%,var(--background))] dark:[--island-wall:color-mix(in_oklab,black_30%,var(--background))]";
 
 type Geo = {
   width: number; height: number; d: number; r: number; s: number; l: number; pitch: number; n: number;
@@ -821,7 +821,7 @@ export function SushiConveyorMenu({
       onKeyDown={onKeyDown}
     >
       {g && (
-        <div aria-hidden="true" data-counter className="pointer-events-none absolute inset-x-0" style={{ top: Math.max(0, g.edgeTop - g.d * 0.34), height: g.ym - Math.max(0, g.edgeTop - g.d * 0.34), background: "linear-gradient(to bottom, color-mix(in oklab, var(--color-foreground) 9%, transparent) 0 1px, transparent 1px, color-mix(in oklab, var(--color-foreground) 5%, transparent) 40%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 18%, black 82%, transparent)", maskImage: "linear-gradient(to right, transparent, black 18%, black 82%, transparent)" }} />
+        <div aria-hidden="true" data-counter className="pointer-events-none absolute inset-x-0" style={{ top: Math.max(0, g.edgeTop - g.d * 0.34), height: g.ym - Math.max(0, g.edgeTop - g.d * 0.34), background: "linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 9%, transparent) 0 1px, transparent 1px, color-mix(in oklab, var(--foreground) 5%, transparent) 40%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 18%, black 82%, transparent)", maskImage: "linear-gradient(to right, transparent, black 18%, black 82%, transparent)" }} />
       )}
       <div ref={beltRef} data-belt aria-hidden="true" className="pointer-events-none absolute inset-0">
         {g && paths && (
@@ -917,7 +917,7 @@ export function SushiConveyorMenu({
       data-center={center}
       className={`relative isolate w-full overflow-hidden bg-background text-foreground ${THEME} ${className ?? ""}`}
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10" style={{ background: "radial-gradient(64% 52% at 50% 56%, color-mix(in oklab, var(--color-foreground) 5%, transparent), transparent 72%)" }} />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10" style={{ background: "radial-gradient(64% 52% at 50% 56%, color-mix(in oklab, var(--foreground) 5%, transparent), transparent 72%)" }} />
       {wide ? (
         <div className="mx-auto grid w-full max-w-7xl grid-cols-[minmax(0,24rem)_minmax(0,1fr)] items-center gap-12 px-8 py-24">
           <div className="flex flex-col items-start gap-6">
