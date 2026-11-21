@@ -2,7 +2,7 @@ import { GallerySection } from "@/components/sections/gallery-section";
 import { Hero } from "@/components/sections/hero";
 import { House } from "@/components/sections/house";
 import { MenuSection } from "@/components/sections/menu-section";
-import { Reviews } from "@/components/sections/reviews";
+import { Plates } from "@/components/sections/plates";
 import { Visit } from "@/components/sections/visit";
 import { site, weekOrder } from "@/content/site";
 
@@ -11,14 +11,15 @@ const dayCodes = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 // Données structurées (schema.org) pour les moteurs de recherche.
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Restaurant",
+  "@type": ["Restaurant", "CafeOrCoffeeShop"],
   name: site.fullName,
   url: site.url,
   telephone: site.phone.e164,
   email: site.email,
-  servesCuisine: ["Deli", "Burgers", "Américaine"],
-  priceRange: "100-350 MAD",
+  servesCuisine: ["Cuisine du marché", "Café", "Brunch"],
+  priceRange: "60-220 MAD",
   hasMenu: `${site.url}/#carte`,
+  acceptsReservations: true,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,
@@ -42,13 +43,13 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\u003c") }}
       />
       <Hero />
+      <Plates />
       <House />
       <MenuSection />
       <GallerySection />
-      <Reviews />
       <Visit />
     </>
   );

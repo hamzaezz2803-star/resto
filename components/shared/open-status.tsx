@@ -33,7 +33,7 @@ export function OpenStatusText({ className }: { className?: string }) {
     <span className={cn("inline-flex items-center gap-2", className)}>
       <span
         aria-hidden="true"
-        className={cn("size-2 rounded-full", status.open ? "bg-open-on-forest" : "bg-brass")}
+        className={cn("size-2 rounded-full", status.open ? "bg-success dark:bg-open-on-forest" : "bg-brass")}
       />
       {status.open
         ? `Ouvert maintenant, jusqu'à ${status.closesAt}`

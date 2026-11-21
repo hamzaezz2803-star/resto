@@ -6,7 +6,7 @@ export default function NotFound() {
     <section className="container-page flex min-h-[80svh] flex-col justify-center pt-32 pb-20">
       <h1 className="type-display text-[clamp(3rem,10vw,7rem)]">Page introuvable</h1>
       <p className="mt-6 max-w-[48ch] text-lg text-moss">
-        Cette adresse ne correspond à aucune page du site. La carte, les horaires et la réservation sont sur l&apos;accueil.
+        Cette adresse ne correspond à aucune page du site. La carte, les horaires et la réservation sont sur la page d&apos;accueil.
       </p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Button asChild size="lg">

@@ -19,12 +19,12 @@ export function HoursTable() {
         {weekOrder.map((day) => {
           const isToday = day === today;
           return (
-            <tr key={day} className={cn("border-b border-line", isToday && "bg-porcelain-deep font-semibold")}>
-              <th scope="row" className="py-3 pr-4 pl-2 font-medium">
+            <tr key={day} className={cn("border-b border-border", isToday && "bg-muted font-semibold")}>
+              <th scope="row" className="py-3 pr-4 pl-3 font-medium">
                 {dayNames[day]}
-                {isToday ? <span className="ml-2 text-sm font-semibold text-brass-deep">(aujourd&apos;hui)</span> : null}
+                {isToday ? <span className="ml-2 text-sm font-semibold text-brass-deep dark:text-brass">(aujourd&apos;hui)</span> : null}
               </th>
-              <td className="py-3 pr-2 text-right tabular-nums">{formatRanges(site.hours[day])}</td>
+              <td className="py-3 pr-3 text-right tabular-nums">{formatRanges(site.hours[day])}</td>
             </tr>
           );
         })}

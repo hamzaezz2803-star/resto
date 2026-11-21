@@ -36,7 +36,7 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
             <button
               type="button"
               onClick={() => setIndex(i)}
-              className="group relative block size-full overflow-hidden rounded-lg bg-forest"
+              className="group relative block size-full overflow-hidden rounded-2xl bg-forest"
               aria-label={`Agrandir la photo : ${img.alt}`}
             >
               <Image

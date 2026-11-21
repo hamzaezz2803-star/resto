@@ -9,11 +9,11 @@ export function GallerySection() {
         <SectionHeading
           id="galerie-title"
           title="Galerie"
-          intro="Sandwichs, burgers, grillades et desserts. Touchez une photo pour l'agrandir."
+          intro="La salle, le comptoir et quelques assiettes. Touchez une photo pour l&apos;agrandir."
         />
         <GalleryGrid images={gallery} />
         <p className="mt-6 text-sm text-moss">
-          Photos d&apos;illustration (Unsplash), en attendant les photos du restaurant.
+          Photos d&apos;illustration (Unsplash), à remplacer par celles de l&apos;établissement.
         </p>
       </div>
     </section>

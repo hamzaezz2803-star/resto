@@ -8,7 +8,7 @@ import { site } from "@/content/site";
 export function MapEmbed() {
   return (
     <iframe
-      title="Plan d'accès Google Maps vers Pastrama, rue Oumayma Essayeh, Maarif, Casablanca"
+      title="Plan d'accès Google Maps"
       src={site.mapEmbedUrl}
       className="absolute inset-0 size-full border-0"
       loading="lazy"
